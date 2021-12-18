@@ -71,10 +71,9 @@ const BlogIndex = ({
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+  query WordPressFrontPage {
     allWpPost(
-      limit: $postsPerPage
-      skip: $offset
+      limit: 5
       sort: { fields: [date], order: DESC }
     ) {
       nodes {

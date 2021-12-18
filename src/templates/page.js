@@ -15,7 +15,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({ data: { previous, next, post } }) => {
+const PageTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || ``,
@@ -54,7 +54,6 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
         <footer>
           <p>Published {post.date}</p>
-          <p>Categorized as {post.categories?.nodes[0]?.name}</p>
           <p>By {post.author?.node?.name}</p>
         </footer>
 
@@ -99,23 +98,16 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   )
 }
 
-export default BlogPostTemplate
+export default PageTemplate
 
 export const pageQuery = graphql`
-  query BlogPostById(
+  query PageById(
     $id: String!
-    $previousPostId: String
-    $nextPostId: String
   ) {
-    post: wpPost(id: { eq: $id }) {
+    post: wpPage(id: { eq: $id }) {
       id
       author {
         node {
-          name
-        }
-      }
-      categories {
-        nodes {
           name
         }
       }
@@ -126,7 +118,6 @@ export const pageQuery = graphql`
       }
       content
       date(formatString: "MMMM DD, YYYY")
-      excerpt
       featuredImage {
         node {
           altText
@@ -141,14 +132,6 @@ export const pageQuery = graphql`
           }
         }
       }
-      title
-    }
-    previous: wpPost(id: { eq: $previousPostId }) {
-      uri
-      title
-    }
-    next: wpPost(id: { eq: $nextPostId }) {
-      uri
       title
     }
   }

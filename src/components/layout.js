@@ -34,6 +34,10 @@ const Layout = ({ isHomePage, children }) => {
 
       <main>{children}</main>
 
+      <section id="sidebar">
+        
+      </section>
+
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
