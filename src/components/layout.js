@@ -4,11 +4,23 @@ import parse from "html-react-parser"
 
 const Layout = ({ isHomePage, children }) => {
   const {
+    allWpPage: {
+      edges
+    },
     wp: {
       generalSettings: { title },
     },
   } = useStaticQuery(graphql`
     query LayoutQuery {
+      allWpPage(sort: {fields: [title], order: ASC}) {
+        edges {
+          page:node {
+            id
+            title
+            uri
+          }
+        }
+      }
       wp {
         generalSettings {
           title
@@ -17,6 +29,8 @@ const Layout = ({ isHomePage, children }) => {
       }
     }
   `)
+
+  console.log("edges", edges)
 
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
@@ -35,7 +49,12 @@ const Layout = ({ isHomePage, children }) => {
       <main>{children}</main>
 
       <section id="sidebar">
-        
+        <div>
+          <p className={`sidebarLink ${window.location.pathname=="/"&&"active"}`}><a href="/">Home</a></p>
+          {edges.map(({page:{id, title, uri}}) => 
+            <p className={`sidebarLink ${window.location.pathname==uri&&"active"}`} key={id}><a href={uri}>{title}</a></p>
+          )}
+        </div>
       </section>
 
       <footer>
