@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import parse from "html-react-parser"
+import { useLocation } from '@reach/router'
 
 const Layout = ({ isHomePage, children }) => {
   const {
@@ -30,7 +31,7 @@ const Layout = ({ isHomePage, children }) => {
     }
   `)
 
-  console.log("edges", edges)
+  const location = useLocation()
 
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
@@ -50,9 +51,13 @@ const Layout = ({ isHomePage, children }) => {
 
       <section id="sidebar">
         <div>
-          <p className={`sidebarLink ${window.location.pathname=="/"&&"active"}`}><a href="/">Home</a></p>
+          <p className={`sidebarLink ${location.pathname=="/"&&"active"}`}>
+            <Link href="/">Home</Link>
+          </p>
           {edges.map(({page:{id, title, uri}}) => 
-            <p className={`sidebarLink ${window.location.pathname==uri&&"active"}`} key={id}><a href={uri}>{title}</a></p>
+            <p className={`sidebarLink ${location.pathname==uri&&"active"}`} key={id}>
+              <Link href={uri}>{title}</Link>
+            </p>
           )}
         </div>
       </section>
