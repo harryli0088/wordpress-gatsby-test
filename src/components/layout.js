@@ -52,11 +52,11 @@ const Layout = ({ isHomePage, children }) => {
       <section id="sidebar">
         <div>
           <p className={`sidebarLink ${location.pathname=="/"&&"active"}`}>
-            <Link href="/">Home</Link>
+            <Link to="/">Home</Link>
           </p>
           {edges.map(({page:{id, title, uri}}) => 
             <p className={`sidebarLink ${location.pathname==uri&&"active"}`} key={id}>
-              <Link href={uri}>{title}</Link>
+              <Link to={uri}>{title}</Link>
             </p>
           )}
         </div>
