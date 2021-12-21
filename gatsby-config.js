@@ -6,6 +6,12 @@
  *
  */
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+console.log("process.env.WPGRAPHQL_URL",process.env.WPGRAPHQL_URL)
+
 module.exports = {
   pathPrefix: "/wordpress-gatsby-test",
   /**

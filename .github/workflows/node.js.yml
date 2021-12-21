@@ -29,8 +29,8 @@ jobs:
 
     - name: create env file
       run: |
-        touch .env
-        echo WPGRAPHQL_URL =${{ secrets.WPGRAPHQL_URL }} >> .env
+        touch .env.production
+        echo WPGRAPHQL_URL =${{ secrets.WPGRAPHQL_URL }} >> .env.production
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
