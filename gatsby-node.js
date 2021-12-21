@@ -19,7 +19,7 @@ exports.createPages = async gatsbyUtilities => {
   const posts = data.allWpPost.edges
 
 
-  await createLandingPage({pages, posts, gatsbyUtilities})
+  // await createLandingPage({pages, posts, gatsbyUtilities})
 
   if (pages.length > 0) {
     await createIndividualPages({ pages, gatsbyUtilities })
