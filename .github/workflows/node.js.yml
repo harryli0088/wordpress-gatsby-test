@@ -26,10 +26,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Set env variables
       env: # Or as an environment variable
-        super_secret: ${{ secrets.WPGRAPHQL_URL }}
+        WPGRAPHQL_URL: ${{ secrets.WPGRAPHQL_URL }}
+      run: echo ${{ secrets.WPGRAPHQL_URL }}
         
     
     - name: Use Node.js ${{ matrix.node-version }}
