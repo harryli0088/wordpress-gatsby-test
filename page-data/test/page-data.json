@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-page-js",
-    "path": "/test/",
-    "result": {"data":{"post":{"id":"cG9zdDo4","author":{"node":{"name":"wordpress-gatsby-test"}},"comments":{"nodes":[]},"content":"\n<p>testing testing 123</p>\n<div style=\"position: fixed;top:0;left:0;width:100vw;height:100vh;background-color:pink;max-width:none;\">test</div>\n","date":"December 18, 2021","featuredImage":null,"title":"Test Page"}},"pageContext":{"id":"cG9zdDo4"}},
-    "staticQueryHashes": ["104267996","741697209","848497233"]}

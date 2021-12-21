@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-page-js",
+    "path": "/bio-and-c-v/",
+    "result": {"data":{"post":{"id":"cG9zdDozNw==","author":{"node":{"name":"jrfritsch"}},"comments":{"nodes":[]},"content":"<p><a href=\"/files/2018/10/mnoai-cv-oct2018.pdf\">Megumi Naoi_CV</a></p>\n","date":"March 25, 2017","featuredImage":null,"title":"Curriculum Vitae"}},"pageContext":{"id":"cG9zdDozNw=="}},
+    "staticQueryHashes": ["104267996","741697209","848497233"]}
